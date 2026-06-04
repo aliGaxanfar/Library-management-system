@@ -53,7 +53,7 @@ class Loan extends Model
     public function getDaysOverdue(): int
     {
         if (!$this->isOverdue()) return 0;
-        return $this->dueDate->diffInDays(Carbon::today());
+        return Carbon::today()->diffInDays($this->dueDate);
     }
 
     public function renew(): bool
